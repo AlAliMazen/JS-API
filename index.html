@@ -17,12 +17,17 @@
     <script>
         fetch("https://ci-swapi.herokuapp.com/api/")
         .then(response=>response.json())
-        .then(data=>{
-            document.getElementById('content').innerText=data["people"]
-        })
+        .then(data=>displayData(data))
         .catch((e)=>{
             console.error("Error is: ",e)
         })
+        function displayData(data){
+            document.getElementById('content').innerText=data['people']
+        }
     </script>
+
+    <!-- another important concept is the call-back function which is nothing but a function with no name after the  arrow
+    in the previous example we have 3 call back function -> theoretically it performs something when the promise is done.
+    -->
 </body>
 </html>
