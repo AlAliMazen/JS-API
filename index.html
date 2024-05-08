@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS | API</title>
+</head>
+<body>
+    <div id="content"></div>
+    <!-- fetch function return a promise which is the idea when we promise to do something when mission is done 
+    this is Asychronious which means you can do other things till the main mission is done. 
+    
+    Pay attention when using the fetch function we need to catch all errors when it fails. We use 
+    the .catch block to catch any errors as following 
+
+    -->
+    <script>
+        fetch("https://ci-swapi.herokuapp.com/api/")
+        .then(response=>response.json())
+        .then(data=>{
+            document.getElementById('content').innerText=data["people"]
+        })
+        .catch((e)=>{
+            console.error("Error is: ",e)
+        })
+    </script>
+</body>
+</html>
